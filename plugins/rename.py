@@ -234,7 +234,7 @@ async def doc(bot, update):
         uploaded_message = None
         if type == "document":
             uploaded_message = await userbot.send_document(
-                chat_id="7073835511",
+                chat_id="-1002155818429",
                 document=file_path,
                 thumb=ph_path,
                 caption=caption,
@@ -242,7 +242,7 @@ async def doc(bot, update):
                 progress_args=("Uᴩʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))
         elif type == "video":
             uploaded_message = await userbot.send_video(
-                chat_id="7073835511",
+                chat_id="-1002155818429",
                 video=file_path,
                 caption=caption,
                 thumb=ph_path,
@@ -251,7 +251,7 @@ async def doc(bot, update):
                 progress_args=("Uᴩʟᴏᴀᴅ Sᴛᴀʀᴛᴇᴅ....", ms, time.time()))
         elif type == "audio":
             uploaded_message = await userbot.send_audio(
-                chat_id="7073835511",
+                chat_id="-1002155818429",
                 audio=file_path,
                 caption=caption,
                 thumb=ph_path,
