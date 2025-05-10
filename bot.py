@@ -1,3 +1,4 @@
+import asyncio
 from datetime import datetime
 from pytz import timezone
 from pyrogram import Client, __version__
@@ -19,8 +20,8 @@ class Bot(Client):
             sleep_threshold=15,
         )
 
-    async def start(self):
-        await super().start()
+    async def start_bot(self):
+        await self.start()
         me = await self.get_me()
         self.mention = me.mention
         self.username = me.username
@@ -33,9 +34,9 @@ class Bot(Client):
             await web.TCPSite(app, "0.0.0.0", 8080).start()
 
         print(f"{me.first_name} (Bot) started ⚡️")
-        for id in Config.ADMIN:
+        for admin_id in Config.ADMIN:
             try:
-                await self.send_message(id, f"**{me.first_name} (Bot) started ⚡️**")
+                await self.send_message(admin_id, f"**{me.first_name} (Bot) started ⚡️**")
             except:
                 pass
 
@@ -43,30 +44,33 @@ class Bot(Client):
             try:
                 curr = datetime.now(timezone("Asia/Kolkata"))
                 date = curr.strftime('%d %B, %Y')
-                time = curr.strftime('%I:%M:%S %p')
+                time_str = curr.strftime('%I:%M:%S %p')
                 await self.send_message(
                     Config.LOG_CHANNEL,
-                    f"**__{me.mention} (Bot) restarted!__**\n\n📅 Date: `{date}`\n⏰ Time: `{time}`\n🌐 Timezone: `Asia/Kolkata`\n\n🉐 Version: `v{__version__} (Layer {layer})`"
+                    f"**__{me.mention} (Bot) restarted!__**\n\n📅 Date: `{date}`\n⏰ Time: `{time_str}`\n🌐 Timezone: `Asia/Kolkata`\n\n🉐 Version: `v{__version__} (Layer {layer})`"
                 )
             except:
                 print("Make sure the bot is admin in the log channel")
 
-# Userbot Client
+# Global clients
+bot = Bot()
 userbot = Client(
     name="renamer_userbot",
     api_id=Config.API_ID,
     api_hash=Config.API_HASH,
-    session_string=Config.SESSION,  # Add SESSION in your config
+    session_string=Config.SESSION,
     sleep_threshold=15
 )
 
-# Run both clients
-if __name__ == "__main__":
-    bot = Bot()
-    await bot.start()
+# Main entry
+async def main():
+    await bot.start_bot()
     await userbot.start()
     print("Userbot also started...")
+    await asyncio.Event().wait()  # Keeps running
 
-    bot.idle()
-    userbot.stop()
-    bot.stop()
+if __name__ == "__main__":
+    try:
+        asyncio.run(main())
+    except (KeyboardInterrupt, SystemExit):
+        print("Bot stopped.")
