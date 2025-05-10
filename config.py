@@ -11,7 +11,7 @@ class Config(object):
     # database config
     DB_NAME = os.environ.get("DB_NAME","Zoro")
     DB_URL  = os.environ.get("DB_URL","")
-    STRING = os.environ.get("STRING", "AQGP6NEAMjnEQNxbYGDn_twdSjnlvf5yHF3eAuNOZZiq2O1Ef_05xA5ZdsOljSnhhMxKYPVHNWhA4xQ4LESNJlaI8hwaat8wiQlsmwxNKvBct75bng4HPBXQhBSSCMk2gZC9Pk-cn4bFv639uda7vQ_ZvqLl2WKyHm6XHPbbp8kqr77p763BvuTL3zpaRUG-UGVu0YBa9S2cdncqDjFX7T4yqmQ4VZfPk6L3qZrweiFlZcpZw3j4GYZ7jm-Zxgail1WfQd5mZJsOtyfp1eE_GA9275XEf1nZQNQCb0liw-F3qIIKnlC1NMssxY_dbi1cxSwKxNCE2-7ZGpv0uXVYDPrsFVhV3gAAAAGloin3AA")
+    SESSION = os.environ.get("SESSION", "AQGP6NEAMjnEQNxbYGDn_twdSjnlvf5yHF3eAuNOZZiq2O1Ef_05xA5ZdsOljSnhhMxKYPVHNWhA4xQ4LESNJlaI8hwaat8wiQlsmwxNKvBct75bng4HPBXQhBSSCMk2gZC9Pk-cn4bFv639uda7vQ_ZvqLl2WKyHm6XHPbbp8kqr77p763BvuTL3zpaRUG-UGVu0YBa9S2cdncqDjFX7T4yqmQ4VZfPk6L3qZrweiFlZcpZw3j4GYZ7jm-Zxgail1WfQd5mZJsOtyfp1eE_GA9275XEf1nZQNQCb0liw-F3qIIKnlC1NMssxY_dbi1cxSwKxNCE2-7ZGpv0uXVYDPrsFVhV3gAAAAGloin3AA")
  
     # other configs
     BOT_UPTIME  = time.time()
