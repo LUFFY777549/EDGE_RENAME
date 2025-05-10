@@ -1,6 +1,7 @@
+import asyncio
 from datetime import datetime
 from pytz import timezone
-from pyrogram import Client, __version__
+from pyrogram import Client, __version__, idle
 from pyrogram.raw.all import layer
 from config import Config
 from aiohttp import web
@@ -26,7 +27,6 @@ class Bot(Client):
         self.username = me.username
         self.uptime = Config.BOT_UPTIME
 
-        # Start web server if needed
         if Config.WEBHOOK:
             app = web.AppRunner(await web_server())
             await app.setup()
@@ -51,22 +51,25 @@ class Bot(Client):
             except:
                 print("Make sure the bot is admin in the log channel")
 
-# Userbot Client
-userbot = Client(
-    name="renamer_userbot",
-    api_id=Config.API_ID,
-    api_hash=Config.API_HASH,
-    session_string=Config.SESSION,  # Add SESSION in your config
-    sleep_threshold=15
-)
-
-# Run both clients
-if __name__ == "__main__":
+# Async main to run both clients
+async def main():
     bot = Bot()
-    bot.start()
-    userbot.start()
-    print("Userbot also started...")
+    userbot = Client(
+        name="renamer_userbot",
+        api_id=Config.API_ID,
+        api_hash=Config.API_HASH,
+        session_string=Config.SESSION,
+        sleep_threshold=15
+    )
 
-    bot.idle()
-    userbot.stop()
-    bot.stop()
+    await bot.start()
+    await userbot.start()
+
+    print("Userbot also started...")
+    await idle()
+
+    await bot.stop()
+    await userbot.stop()
+
+if __name__ == "__main__":
+    asyncio.run(main())
