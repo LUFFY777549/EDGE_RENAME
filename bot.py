@@ -63,8 +63,8 @@ userbot = Client(
 # Run both clients
 if __name__ == "__main__":
     bot = Bot()
-    bot.start()
-    userbot.start()
+    await bot.start()
+    await userbot.start()
     print("Userbot also started...")
 
     bot.idle()
