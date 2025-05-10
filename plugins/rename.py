@@ -21,7 +21,7 @@ import os, time
 
 
 from bot import UserBot, Bot
-userBot = UserBot
+userbot = UserBot
 
 @Bot.on_message(filters.private & (filters.document | filters.audio | filters.video))
 async def rename_start(client, message):
