@@ -17,6 +17,7 @@ from helper.database import db
 from asyncio import sleep
 from PIL import Image
 import os, time
+from bot import userbot
 
 
 @Client.on_message(filters.private & (filters.document | filters.audio | filters.video))
