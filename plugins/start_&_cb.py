@@ -4,7 +4,9 @@ from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup, ForceRepl
 from helper.database import db
 from config import Config, Txt
 
-@Client.on_message(filters.command("metadata"))
+from bot import Bot 
+
+@Bot.on_message(filters.command("metadata"))
 async def metadata(client, message):
     user_id = message.from_user.id
 
@@ -39,7 +41,9 @@ async def metadata(client, message):
 
     await message.reply_text(text=text, reply_markup=keyboard, disable_web_page_preview=True)
 
-@Client.on_message(filters.private & filters.command("start"))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command("start"))
 async def start(client, message):
     user = message.from_user
     await db.add_user(client, message)
@@ -59,7 +63,9 @@ async def start(client, message):
                                  disable_web_page_preview=True)
 
 
-@Client.on_callback_query()
+from bot import Bot 
+
+@Bot.on_callback_query()
 async def cb_handler(client, query: CallbackQuery):
     data = query.data
     if data == "start":

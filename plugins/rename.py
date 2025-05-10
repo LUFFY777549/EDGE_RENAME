@@ -17,10 +17,13 @@ from helper.database import db
 from asyncio import sleep
 from PIL import Image
 import os, time
-from bot import userbot
 
 
-@Client.on_message(filters.private & (filters.document | filters.audio | filters.video))
+
+from bot import UserBot, Bot
+userBot = UserBot
+
+@Bot.on_message(filters.private & (filters.document | filters.audio | filters.video))
 async def rename_start(client, message):
     file = getattr(message, message.media.value)
     filename = file.file_name
@@ -44,7 +47,9 @@ async def rename_start(client, message):
         pass
 
 
-@Client.on_message(filters.private & filters.reply)
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.reply)
 async def refunc(client, message):
     reply_message = message.reply_to_message
     if (reply_message.reply_markup) and isinstance(reply_message.reply_markup, ForceReply):
@@ -75,7 +80,9 @@ async def refunc(client, message):
         )
 
 
-@Client.on_callback_query(filters.regex("upload"))
+from bot import Bot 
+
+@Bot.on_callback_query(filters.regex("upload"))
 async def doc(bot, update):
     user_id = update.from_user.id
     prefix = await db.get_prefix(update.message.chat.id)

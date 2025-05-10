@@ -6,21 +6,21 @@ class Config(object):
     # pyro client config
     API_ID    = os.environ.get("API_ID", 7414019)
     API_HASH  = os.environ.get("API_HASH", "d463ed3d695f5cd4164029405ad8388e")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "8125825192:AAFuo1v1xt1jJwYIgUJIoAVeUANfc2mbj9o")
    
     # database config
     DB_NAME = os.environ.get("DB_NAME","Zoro")
-    DB_URL  = os.environ.get("DB_URL","")
+    DB_URL  = os.environ.get("DB_URL","mongodb+srv://I-LOVE-PDF-BOT:I-LOVE-PDF-BOT@cluster0.c51o3a9.mongodb.net/?retryWrites=true&w=majority")
     SESSION = os.environ.get("SESSION", "AQGP6NEAMjnEQNxbYGDn_twdSjnlvf5yHF3eAuNOZZiq2O1Ef_05xA5ZdsOljSnhhMxKYPVHNWhA4xQ4LESNJlaI8hwaat8wiQlsmwxNKvBct75bng4HPBXQhBSSCMk2gZC9Pk-cn4bFv639uda7vQ_ZvqLl2WKyHm6XHPbbp8kqr77p763BvuTL3zpaRUG-UGVu0YBa9S2cdncqDjFX7T4yqmQ4VZfPk6L3qZrweiFlZcpZw3j4GYZ7jm-Zxgail1WfQd5mZJsOtyfp1eE_GA9275XEf1nZQNQCb0liw-F3qIIKnlC1NMssxY_dbi1cxSwKxNCE2-7ZGpv0uXVYDPrsFVhV3gAAAAGloin3AA")
  
     # other configs
     BOT_UPTIME  = time.time()
     START_PIC   = os.environ.get("START_PIC", "https://telegra.ph/file/0624f0e874718a066a3f6.mp4")
-    ADMIN       = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '1350488685 6294805935').split()]
+    ADMIN       = [int(admin) if id_pattern.search(admin) else admin for admin in os.environ.get('ADMIN', '7073835511').split()]
     FORCE_SUB_1 = os.environ.get("FORCE_SUB_1", "EdgeBotSupport")
     FORCE_SUB_2 = os.environ.get("FORCE_SUB_2", "EdgeBots")
-    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", -1001863937035))
-    DUMP_CHANNEL = int(os.environ.get("DUMP_CHANNEL", "-1002131803512"))
+    LOG_CHANNEL = int(os.environ.get("LOG_CHANNEL", -1002155818429))
+    DUMP_CHANNEL = int(os.environ.get("DUMP_CHANNEL", "-1002155818429"))
 
     # wes response configuration     
     WEBHOOK = bool(os.environ.get("WEBHOOK", True))

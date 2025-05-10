@@ -12,7 +12,9 @@ logger.setLevel(logging.INFO)
 # Import the psutil module for system-related information
 import psutil
 
-@Client.on_message(filters.command(["stats", "status"]) & filters.user(Config.ADMIN))
+from bot import Bot 
+
+@Bot.on_message(filters.command(["stats", "status"]) & filters.user(Config.ADMIN))
 async def get_stats(bot, message):
     total_users = await db.total_users_count()
     uptime = time.strftime("%Hh%Mm%Ss", time.gmtime(time.time() - bot.uptime))
@@ -71,13 +73,17 @@ async def get_stats(bot, message):
 
 
 #Restart to cancell all process 
-@Client.on_message(filters.private & filters.command("restart") & filters.user(Config.ADMIN))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command("restart") & filters.user(Config.ADMIN))
 async def restart_bot(b, m):
     await m.reply_text("🔄__Rᴇꜱᴛᴀʀᴛɪɴɢ.....__")
     os.execl(sys.executable, sys.executable, *sys.argv)
 
 
-@Client.on_message(filters.command("broadcast") & filters.user(Config.ADMIN) & filters.reply)
+from bot import Bot 
+
+@Bot.on_message(filters.command("broadcast") & filters.user(Config.ADMIN) & filters.reply)
 async def broadcast_handler(bot: Client, m: Message):
     await bot.send_message(Config.LOG_CHANNEL, f"{m.from_user.mention} or {m.from_user.id} Iꜱ ꜱᴛᴀʀᴛᴇᴅ ᴛʜᴇ Bʀᴏᴀᴅᴄᴀꜱᴛ......")
     all_users = await db.get_all_users()

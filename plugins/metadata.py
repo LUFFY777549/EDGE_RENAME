@@ -2,7 +2,9 @@ from helper.database import db
 from pyrogram import Client, filters
 
 
-@Client.on_message(filters.private & filters.command('settitle'))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command('settitle'))
 async def title(client, message):
     if len(message.command) == 1:
         return await message.reply_text(
@@ -11,7 +13,9 @@ async def title(client, message):
     await db.set_title(message.from_user.id, title=title)
     await message.reply_text("**✅ Tɪᴛʟᴇ Sᴀᴠᴇᴅ**")
 
-@Client.on_message(filters.private & filters.command('setauthor'))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command('setauthor'))
 async def author(client, message):
     if len(message.command) == 1:
         return await message.reply_text(
@@ -20,7 +24,9 @@ async def author(client, message):
     await db.set_author(message.from_user.id, author=author)
     await message.reply_text("**✅ Aᴜᴛʜᴏʀ Sᴀᴠᴇᴅ**")
 
-@Client.on_message(filters.private & filters.command('setartist'))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command('setartist'))
 async def artist(client, message):
     if len(message.command) == 1:
         return await message.reply_text(
@@ -29,7 +35,9 @@ async def artist(client, message):
     await db.set_artist(message.from_user.id, artist=artist)
     await message.reply_text("**✅ Aʀᴛɪꜱᴛ Sᴀᴠᴇᴅ**")
 
-@Client.on_message(filters.private & filters.command('setaudio'))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command('setaudio'))
 async def audio(client, message):
     if len(message.command) == 1:
         return await message.reply_text(
@@ -38,7 +46,9 @@ async def audio(client, message):
     await db.set_audio(message.from_user.id, audio=audio)
     await message.reply_text("**✅ Aᴜᴅɪᴏ Sᴀᴠᴇᴅ**")
 
-@Client.on_message(filters.private & filters.command('setsubtitle'))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command('setsubtitle'))
 async def subtitle(client, message):
     if len(message.command) == 1:
         return await message.reply_text(
@@ -47,7 +57,9 @@ async def subtitle(client, message):
     await db.set_subtitle(message.from_user.id, subtitle=subtitle)
     await message.reply_text("**✅ Sᴜʙᴛɪᴛʟᴇ Sᴀᴠᴇᴅ**")
 
-@Client.on_message(filters.private & filters.command('setvideo'))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command('setvideo'))
 async def video(client, message):
     if len(message.command) == 1:
         return await message.reply_text(

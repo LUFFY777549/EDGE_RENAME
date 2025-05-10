@@ -2,7 +2,9 @@ from pyrogram import Client, filters, enums
 from helper.database import db
 
 
-@Client.on_message(filters.private & filters.command(['set_prefix', 'setprefix']))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command(['set_prefix', 'setprefix']))
 async def add_caption(client, message):
 
     if len(message.command) == 1:
@@ -13,7 +15,9 @@ async def add_caption(client, message):
     await EdgeBot.edit("**Pʀᴇғɪx Sᴀᴠᴇᴅ Sᴜᴄᴄᴇssғᴜʟʟʏ✨**")
 
 
-@Client.on_message(filters.private & filters.command(['del_prefix', 'delprefix']))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command(['del_prefix', 'delprefix']))
 async def delete_prefix(client, message):
 
     EdgeBots = await message.reply_text("Please Wait ...")
@@ -24,7 +28,9 @@ async def delete_prefix(client, message):
     await EdgeBots.edit("**Pʀᴇғɪx Dᴇʟᴇᴛᴇᴅ Sᴜᴄᴄᴇssғᴜʟʟʏ ⚡️**")
 
 
-@Client.on_message(filters.private & filters.command(['see_prefix', 'seeprefix']))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command(['see_prefix', 'seeprefix']))
 async def see_prefix(client, message):
 
     EdgeBots = await message.reply_text("Please Wait ...")
@@ -36,7 +42,9 @@ async def see_prefix(client, message):
 
 
 # SUFFIX
-@Client.on_message(filters.private & filters.command(['set_suffix', 'setsuffix']))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command(['set_suffix', 'setsuffix']))
 async def add_csuffix(client, message):
 
     if len(message.command) == 1:
@@ -47,7 +55,9 @@ async def add_csuffix(client, message):
     await EdgeBots.edit("**Sᴜғғɪx Sᴀᴠᴇᴅ Sᴜᴄᴄᴇssғᴜʟʟʏ✨**")
 
 
-@Client.on_message(filters.private & filters.command(['del_suffix', 'delsuffix']))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command(['del_suffix', 'delsuffix']))
 async def delete_suffix(client, message):
 
     EdgeBots = await message.reply_text("Please Wait ...")
@@ -58,7 +68,9 @@ async def delete_suffix(client, message):
     await EdgeBots.edit("**Sᴜғғɪx Dᴇʟᴇᴛᴇᴅ Sᴜᴄᴄᴇssғᴜʟʟʏ ⚡️**")
 
 
-@Client.on_message(filters.private & filters.command(['see_suffix', 'seesuffix']))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command(['see_suffix', 'seesuffix']))
 async def see_suffix(client, message):
     EdgeBots = await message.reply_text("Please Wait ...")
     suffix = await db.get_suffix(message.from_user.id)

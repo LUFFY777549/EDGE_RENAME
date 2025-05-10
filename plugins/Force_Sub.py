@@ -22,7 +22,9 @@ async def not_subscribed(_, client, message):
     return True
 
 
-@Client.on_message(filters.private & filters.create(not_subscribed))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.create(not_subscribed))
 async def forces_sub(client, message):
     user_firstname = message.from_user.first_name
 
@@ -52,7 +54,9 @@ To unleash my full power and access all the premium features, you've got to join
     return await message.reply_text(text=text, reply_markup=InlineKeyboardMarkup(buttons))
 
 
-@Client.on_callback_query(filters.regex("check_joined"))
+from bot import Bot 
+
+@Bot.on_callback_query(filters.regex("check_joined"))
 async def check_joined_callback(client, query):
     user = query.from_user
 

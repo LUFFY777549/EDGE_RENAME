@@ -3,7 +3,9 @@ from pyrogram import filters, Client, enums
 from helper.database import db
 
 
-@Client.on_message(filters.private & filters.command("setdump"))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command("setdump"))
 async def set_dump_channel(client, message):
     user_id = message.from_user.id
 
@@ -59,7 +61,9 @@ async def set_dump_channel(client, message):
     except Exception as e:
         await message.reply_text(f"An error occurred: {str(e)}")
 
-@Client.on_message(filters.private & filters.command("viewdump"))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command("viewdump"))
 async def view_dump_channel(client, message):
     user_id = message.from_user.id
     dump_channel = await db.get_dump_channel(user_id)
@@ -86,7 +90,9 @@ async def view_dump_channel(client, message):
             "all your renamed files to that channel."
         )
 
-@Client.on_message(filters.private & filters.command("removedump"))
+from bot import Bot 
+
+@Bot.on_message(filters.private & filters.command("removedump"))
 async def remove_dump_channel(client, message):
     user_id = message.from_user.id
 
