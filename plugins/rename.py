@@ -25,10 +25,6 @@ async def rename_start(client, message):
     filename = file.file_name
     # if await check_anti_nsfw(filename, message):
     #     return
-
-    if file.file_size > 2000 * 1024 * 1024:
-        return await message.reply_text("Sorry Bro This Bot Doesn't Support Uploading Files Bigger Than 2GB")
-
     try:
         await message.reply_text(
             text=f"**Please Enter New Filename...**\n\n**Old File Name** :- `{filename}`",
