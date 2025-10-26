@@ -83,12 +83,13 @@ class UserBot(Client):
 
 async def main():
     bot = Bot()
-    userbot = UserBot()
-    
-    # Start both clients
-    await asyncio.gather(bot.start(), userbot.start())
-    
-    # Keep the clients running
+
+    if Config.SESSION:  # Only start userbot if session is not empty
+        userbot = UserBot()
+        await asyncio.gather(bot.start(), userbot.start())
+    else:
+        await bot.start()
+
     await asyncio.Event().wait()
 
 # Run the bot and userbot
