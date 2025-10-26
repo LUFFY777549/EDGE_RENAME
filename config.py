@@ -6,7 +6,7 @@ class Config(object):
     # pyro client config
     API_ID    = os.environ.get("API_ID", 7414019)
     API_HASH  = os.environ.get("API_HASH", "d463ed3d695f5cd4164029405ad8388e")
-    BOT_TOKEN = os.environ.get("BOT_TOKEN", "8302777365:AAG4tnaqg0Eza96fRI_k__SPXPXvmdfAC4Y")
+    BOT_TOKEN = os.environ.get("BOT_TOKEN", "8204806168:AAHju_AMp9brNBkiFWml_6n-SnzGFwcRr8g")
    
     # database config
     DB_NAME = os.environ.get("DB_NAME","Zoro")
