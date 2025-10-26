@@ -11,7 +11,7 @@ class Config(object):
     # database config
     DB_NAME = os.environ.get("DB_NAME","Zoro")
     DB_URL  = os.environ.get("DB_URL","mongodb+srv://I-LOVE-PDF-BOT:I-LOVE-PDF-BOT@cluster0.c51o3a9.mongodb.net/?retryWrites=true&w=majority")
-    SESSION = os.environ.get("SESSION", "AQGP6NEAMjnEQNxbYGDn_twdSjnlvf5yHF3eAuNOZZiq2O1Ef_05xA5ZdsOljSnhhMxKYPVHNWhA4xQ4LESNJlaI8hwaat8wiQlsmwxNKvBct75bng4HPBXQhBSSCMk2gZC9Pk-cn4bFv639uda7vQ_ZvqLl2WKyHm6XHPbbp8kqr77p763BvuTL3zpaRUG-UGVu0YBa9S2cdncqDjFX7T4yqmQ4VZfPk6L3qZrweiFlZcpZw3j4GYZ7jm-Zxgail1WfQd5mZJsOtyfp1eE_GA9275XEf1nZQNQCb0liw-F3qIIKnlC1NMssxY_dbi1cxSwKxNCE2-7ZGpv0uXVYDPrsFVhV3gAAAAGloin3AA")
+    SESSION = os.environ.get("SESSION", "BQFDw-IAtTGafjaLG2-5eDXvKsZylk6UjY0bc6-M7xyqO8c9T8KWJ_1_gtFlX3lnMUg_ONhHzmVPI-xYDSOEAODwiiC3_HKSeIWDoGLq5k-mZrnQ4yBHQe-QGEOHo9eo-6FsOD01Bj0Kl-2lE6gox331337kQICOVNUODjYd4CxSDz1GehD58Rw94TADowEMkwhfVbhkztid8wNTpQND8Pi9jAA7bN_XxAFe-PZy-1QOZgsCTbCFC8sF2sUJmnqsimyjjFbLgQw1jIzGYDMAMARMj2TkJKl8OBaOnbljTGpTEs7mHo4TrrNXQAhVxdgC9KygmYtFtcJm6YhGjeG1sLnBsOuDSAAAAAH4SoS6AA")
  
     # other configs
     BOT_UPTIME  = time.time()
